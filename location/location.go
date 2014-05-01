@@ -1,8 +1,8 @@
 package location
 
 import (
-	"encoding/xml"
 	"fmt"
+	"encoding/xml"
 	"github.com/mkboudreau/loggo"
 	"io/ioutil"
 	"net/http"
@@ -31,12 +31,13 @@ type Location struct {
 	Enabled         string `xml:"Enabled"`
 }
 
-func (location *Location) String() string {
-	return fmt.Sprintf("ID: %v, Name: %v", location.ID, location.Name)
-}
 
 func NewLocationService() LocationService {
 	return recreationGovService
+}
+
+func (location *Location) String() string {
+	return fmt.Sprintf("ID: %v, Name: %v", location.ID, location.Name)
 }
 
 func getLocationsFromHttpResponse(resp *http.Response) (*Locations, bool) {
