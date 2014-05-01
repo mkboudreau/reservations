@@ -10,9 +10,8 @@ const siteRetrRecGovTestUrl = "http://www.recreation.gov/campsiteCalendar.do?sit
 
 var _ = Describe("Site Retrieval Tests", func() {
 		Context("Retrieve HTML Test", func() {
-				remoteSite := &RemoteSiteRequestData{SiteUrl:siteRetrRecGovTestUrl}
 				It("Get the start command", func() {
-						html, err := remoteSite.RetrieveHtml()
+						html, err := RetrieveHtmlFromURL(siteRetrRecGovTestUrl)
 						Expect(html).ToNot(BeNil())
 						Expect(err).To(BeNil())
 						Expect(html).To(ContainSubstring("</html>"))
